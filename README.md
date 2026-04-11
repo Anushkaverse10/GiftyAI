@@ -3,6 +3,8 @@
 GiftyAI is a web application designed to help users find the perfect gift for their loved ones.
 Instead of endlessly scrolling through ideas, users can simply enter preferences, budget, and interests — and get personalized gift suggestions instantly.
 
+###LIVE DEMO LINK
+npx plugins add vercel/vercel-plugin
 ---
 
 ## 🚀 Features
