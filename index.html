@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GiftyAI – Smart Gift Recommendations</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    
+    <header class="header">
+      <div class="header__inner">
+        <div class="logo">
+          <span class="logo__icon">🎁</span>
+          <span class="logo__text">GiftyAI</span>
+        </div>
+        <p class="header__tagline">Find the perfect gift, every time.</p>
+      </div>
+      <div class="header__blob blob1"></div>
+      <div class="header__blob blob2"></div>
+    </header>
+
+    
+    <main class="main">
+      
+      <section class="form-section">
+        <div class="section-label">✦ Tell us about your recipient</div>
+        <h2 class="section-title">Let's find <em>the one</em> gift.</h2>
+
+        <div class="card form-card">
+          
+          <div class="form-group">
+            <label class="form-label" for="relationship">
+              <span class="step-badge">01</span> Who is this gift for?
+            </label>
+            <div class="select-wrapper">
+              <select id="relationship" class="form-select">
+                <option value="" disabled selected>
+                  Choose a relationship…
+                </option>
+                <option value="mom">Mom</option>
+                <option value="dad">Dad</option>
+                <option value="partner">Partner / Spouse</option>
+                <option value="friend">Best Friend</option>
+                <option value="sibling">Sibling</option>
+                <option value="colleague">Colleague</option>
+                <option value="child">Child</option>
+                <option value="teacher">Teacher</option>
+              </select>
+              <span class="select-arrow">↓</span>
+            </div>
+          </div>
+
+          
+          <div class="form-group">
+            <label class="form-label" for="budget">
+              <span class="step-badge">02</span> What's your budget?
+            </label>
+            <div class="budget-wrapper">
+              <span class="budget-symbol">₹</span>
+              <input
+                type="number"
+                id="budget"
+                class="form-input"
+                placeholder="e.g. 500"
+                min="0"
+              />
+            </div>
+            <div class="budget-chips">
+              <button class="chip" data-value="200">Under ₹200</button>
+              <button class="chip" data-value="500">Under ₹500</button>
+              <button class="chip" data-value="1000">Under ₹1000</button>
+              <button class="chip" data-value="2000">Under ₹2000</button>
+              <button class="chip" data-value="5000">₹5000+</button>
+            </div>
+          </div>
+
+        
+          <div class="form-group">
+            <label class="form-label">
+              <span class="step-badge">03</span> Pick their interests
+            </label>
+            <div class="interests-grid" id="interestsGrid">
+              <button class="interest-btn" data-interest="books">
+                📚 Books
+              </button>
+              <button class="interest-btn" data-interest="music">
+                🎵 Music
+              </button>
+              <button class="interest-btn" data-interest="gaming">
+                🎮 Gaming
+              </button>
+              <button class="interest-btn" data-interest="fitness">
+                💪 Fitness
+              </button>
+              <button class="interest-btn" data-interest="cooking">
+                🍳 Cooking
+              </button>
+              <button class="interest-btn" data-interest="travel">
+                ✈️ Travel
+              </button>
+              <button class="interest-btn" data-interest="fashion">
+                👗 Fashion
+              </button>
+              <button class="interest-btn" data-interest="art">🎨 Art</button>
+              <button class="interest-btn" data-interest="tech">💻 Tech</button>
+              <button class="interest-btn" data-interest="gardening">
+                🌿 Gardening
+              </button>
+              <button class="interest-btn" data-interest="movies">
+                🎬 Movies
+              </button>
+              <button class="interest-btn" data-interest="pets">🐾 Pets</button>
+            </div>
+          </div>
+
+          <button class="submit-btn" id="findGifts">
+            <span class="submit-btn__text">Find My Gifts ✦</span>
+            <span class="submit-btn__loader" id="loader" style="display: none"
+              >Finding…</span
+            >
+          </button>
+        </div>
+      </section>
+
+      
+      <section
+        class="results-section"
+        id="resultsSection"
+        style="display: none"
+      >
+        <div class="section-label">✦ Curated just for you</div>
+        <h2 class="section-title" id="resultsTitle">
+          Here are your <em>gift ideas</em>.
+        </h2>
+        <div class="results-grid" id="resultsGrid"></div>
+        <button class="reset-btn" id="resetBtn">← Start Over</button>
+      </section>
+
+      
+      <div class="empty-state" id="emptyState" style="display: none">
+        <div class="empty-icon">🤔</div>
+        <h3>No matches found</h3>
+        <p>Try adjusting your budget or adding more interests!</p>
+      </div>
+
+      <!-- ── AI CHATBOT ── -->
+<section class="chat-section" id="chatSection">
+  <div class="section-label">✦ Ask our AI</div>
+  <h2 class="section-title">Chat with <em>GiftyAI</em></h2>
+  <div class="chat-card">
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-bubble bot">
+        👋 Hi! I'm GiftyAI. Tell me about the person you're gifting and I'll suggest ideas!
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input id="chatInput" type="text" placeholder="e.g. Gift for my mom who loves cooking, budget ₹500" />
+      <button id="sendBtn" type="button">Send ↑</button>
+      
+    </div>
+  </div>
+</section>
+    </main>
+
+    
+    <footer class="footer">
+      <p>
+        Made with ❤️ by <strong>GiftyAI</strong> &nbsp;·&nbsp; Gifting made easy
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
