@@ -54,41 +54,6 @@ GIFTYAI/
     └── data/gifts.js
 ```
 
----
-
-## ⚙️ Setup Instructions
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/giftyai.git
-cd giftyai
-```
-
----
-
-### 2. Setup backend
-
-```bash
-cd backend
-npm install
-node server.js
-```
-
-Server will run on:
-
-```
-http://localhost:5000
-```
-
----
-
-### 3. Run frontend
-
-Open `index.html` using Live Server or browser.
-
----
-
 ## 🚧 Future Improvements
 
 * 🎁 Convert AI responses into product cards
